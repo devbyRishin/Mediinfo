@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediconnect - Healthcare Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .form-container {
+            transition: transform 0.5s ease;
+        }
+        .hidden-form {
+            transform: translateX(100%);
+            opacity: 0;
+            position: absolute;
+        }
+        .active-form {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                              url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Hero Section with Background Image -->
+    <section class="hero-section text-white py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Welcome to Mediconnect</h1>
+            <p class="text-xl mb-8 leading-relaxed">
+                Connect instantly with certified healthcare professionals from the comfort of your home. 
+                Our platform offers 24/7 access to doctors, specialists, and medical advice through secure 
+                video consultations and chat services.
+            </p>
+            <div class="flex justify-center gap-4">
+                <button onclick="showLogin()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium">
+                    Login Now
+                </button>
+                <button onclick="showSignup()" class="bg-white hover:bg-gray-100 text-blue-600 px-6 py-3 rounded-lg font-medium">
+                    Create Account
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Forms Section -->
+    <section id="authSection" class="hidden bg-white p-8 rounded-t-3xl shadow-lg w-full max-w-md mx-auto -mt-16 relative">
+        <!-- Back Button -->
+        <button onclick="hideForms()" class="absolute left-6 top-6 text-gray-500 hover:text-gray-700">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        
+        <div class="relative h-auto min-h-[400px]">
+            <!-- Login Form -->
+            <div id="loginForm" class="form-container hidden-form w-full pt-10">
+                <h2 class="text-2xl font-bold text-blue-600 mb-6 text-center">Doctor Login</h2>
+                <form>
+                    <div class="mb-4">
+                        <input type="email" placeholder="Professional Email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="mb-6">
+                        <input type="password" placeholder="Password" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-medium">
+                        Access Dashboard
+                    </button>
+                </form>
+                <p class="mt-4 text-center text-sm text-gray-600">
+                    Not registered yet? 
+                    <a href="#" onclick="showSignup()" class="text-blue-600 font-medium">Create professional account</a>
+                </p>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signupForm" class="form-container hidden-form w-full pt-10">
+                <h2 class="text-2xl font-bold text-blue-600 mb-6 text-center">Doctor Registration</h2>
+                <form>
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <input type="text" placeholder="First Name" class="p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <input type="text" placeholder="Last Name" class="p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="mb-4">
+                        <input type="email" placeholder="Medical Email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="mb-4">
+                        <input type="password" placeholder="Create Password" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="mb-4">
+                        <input type="password" placeholder="Confirm Password" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-medium">
+                        Complete Registration
+                    </button>
+                </form>
+                <p class="mt-4 text-center text-sm text-gray-600">
+                    Already have an account? 
+                    <a href="#" onclick="showLogin()" class="text-blue-600 font-medium">Login here</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="max-w-6xl mx-auto py-16 px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Medical Services</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                <div class="text-blue-500 text-4xl mb-4">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Video Consultations</h3>
+                <p class="text-gray-600">
+                    Secure video calls with healthcare providers for accurate diagnosis and treatment plans.
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                <div class="text-blue-500 text-4xl mb-4">
+                    <i class="fas fa-comment-medical"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Instant Messaging</h3>
+                <p class="text-gray-600">
+                    24/7 chat access to doctors for quick medical advice and prescription renewals.
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                <div class="text-blue-500 text-4xl mb-4">
+                    <i class="fas fa-file-medical"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Health Records</h3>
+                <p class="text-gray-600">
+                    Secure digital storage for your medical history, prescriptions, and test results.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        // Show/hide forms
+        function showForms() {
+            document.getElementById('authSection').classList.remove('hidden');
+        }
+        
+        function hideForms() {
+            document.getElementById('authSection').classList.add('hidden');
+        }
+
+        // Toggle between forms
+        function showSignup() {
+            showForms();
+            document.getElementById('loginForm').classList.remove('active-form');
+            document.getElementById('loginForm').classList.add('hidden-form');
+            document.getElementById('signupForm').classList.remove('hidden-form');
+            document.getElementById('signupForm').classList.add('active-form');
+        }
+
+        function showLogin() {
+            showForms();
+            document.getElementById('signupForm').classList.remove('active-form');
+            document.getElementById('signupForm').classList.add('hidden-form');
+            document.getElementById('loginForm').classList.remove('hidden-form');
+            document.getElementById('loginForm').classList.add('active-form');
+        }
+    </script>
+
+</body></html>
